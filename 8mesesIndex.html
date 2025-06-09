@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>8 meses</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: #fef3c7;
+      font-family: 'Segoe UI', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .envelope {
+      width: 200px;
+      height: 120px;
+      background: #f59e0b;
+      position: relative;
+      cursor: pointer;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+
+    .flap {
+      width: 0;
+      height: 0;
+      border-left: 100px solid transparent;
+      border-right: 100px solid transparent;
+      border-bottom: 60px solid #fbbf24;
+      position: absolute;
+      top: -60px;
+      left: 0;
+      transition: 0.5s;
+    }
+
+    .letter {
+      width: 180px;
+      height: 100px;
+      background: white;
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      padding: 10px;
+      border-radius: 5px;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.5s ease;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    .letter.visible {
+      opacity: 1;
+      transform: translateY(-140px);
+    }
+
+    .message {
+      font-size: 14px;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+
+<div class="envelope" onclick="abrirCarta()">
+  <div class="flap" id="flap"></div>
+  <div class="letter" id="carta">
+    <div class="message">
+      🌟 <strong>Hola Amor:</strong><br><br>
+      Hoy cumplimos 8 meses. No han sido 8 meses perfectos, lo sé. Hemos tenido momentos hermosos, pero también momentos duros, silencios largos, desacuerdos y hasta dudas. Y sin embargo… aquí estamos. Juntos. Todavía apostando el uno por el otro.
+Gracias por no rendirte. Por quedarte cuando era más fácil irse. Gracias por intentar, por volver a mirar con ternura incluso cuando estábamos cansados, rotos o confundidos.
+Nuestra relación no es de cuento de hadas, pero es real. Tiene grietas, sí, pero también raíces. Y eso vale más que cualquier historia fácil. Porque lo verdadero no siempre es perfecto, pero sí valiente.
+A veces duele, otras veces sana. Pero siempre enseña. Y cada día contigo, incluso en la tormenta, ha sido una lección de amor, de crecimiento y de lucha compartida.
+Sigamos. Sin máscaras. Sin promesas vacías. Solo tú, yo, y las ganas de construir algo que nos haga bien. Día a día. Paso a paso.
+Gracias por estos 8 meses.
+Ojalá vengan muchos más… incluso con sus altibajos, porque mientras estemos del mismo lado, todo vale la pena.<br>    💌 Piero
+    </div>
+  </div>
+</div>
+
+<script>
+  function abrirCarta() {
+    const carta = document.getElementById("carta");
+    const flap = document.getElementById("flap");
+
+    // Abre la carta
+    carta.classList.toggle("visible");
+
+    // Levanta la solapa
+    flap.style.transform = carta.classList.contains("visible") ? "rotateX(180deg)" : "rotateX(0deg)";
+  }
+</script>
+
+</body>
+</html>
